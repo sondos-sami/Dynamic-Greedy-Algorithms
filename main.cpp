@@ -39,6 +39,19 @@ int main() {
                 break;
             case 2:
                 cout << "You selected Q2 - Dynamic Programming Problem 2" << endl;
+                {
+                    string s;
+                    cout<<"enter your text";
+                    cin >> s;
+
+
+                    if (s.find('w') != string::npos || s.find('m') != string::npos) {
+                        cout << 0 << endl;
+                        return 0;
+                    }
+
+                    cout << Q2(s) << endl;
+                }
                 break;
             case 3:
                 cout << "You selected Q3 - Dynamic Programming Problem 3" << endl;
