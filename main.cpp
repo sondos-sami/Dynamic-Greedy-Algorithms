@@ -57,7 +57,37 @@ int main() {
                 cout << "You selected Q3 - Dynamic Programming Problem 3" << endl;
                 break;
             case 4:
-                cout << "You selected Q4 - Dynamic Programming Problem 4" << endl;
+              {
+                    ios::sync_with_stdio(false);
+                    cin.tie(nullptr);
+
+                    bool first_case = true;
+                    int t, w;
+
+                    while (cin >> t >> w) {
+                        if (!first_case) cout << "\n";
+                        first_case = false;
+
+                        int n;
+                        cin >> n;
+
+                        vector<Treasure> treasures(n);
+                        for (int i = 0; i < n; ++i) {
+                            cin >> treasures[i].depth >> treasures[i].gold;
+                        }
+
+                        pair<int, vector<int>> result = calculateMaxGold(t, w, treasures);
+                        int max_gold = result.first;
+                        vector<int> choice_indices = result.second;
+
+                        cout << max_gold << "\n";
+                        cout << choice_indices.size() << "\n";
+                        for (int index : choice_indices) {
+                            cout << treasures[index].depth << " " << treasures[index].gold << endl;
+                        }
+                    }
+
+                }
                 break;
             case 5:
             {
@@ -74,7 +104,15 @@ int main() {
             }
                 break;
             case 6:
-                cout << "You selected Q1 - Greedy Problem 1" << endl;
+               {
+                vector<int> g1 = {1, 2, 3};
+                vector<int> s1 = {1, 1};
+                cout << "Example 1: " << findContentChildren(g1, s1) << endl;
+
+                vector<int> g2 = {1, 2};
+                vector<int> s2 = {1, 2, 3};
+                cout << "Example 2: " << findContentChildren(g2, s2) << endl;
+        }
                 break;
             case 7:
                 cout << "You selected Q2 - Greedy Problem 2" << endl;
