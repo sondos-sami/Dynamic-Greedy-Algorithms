@@ -115,7 +115,13 @@ int main() {
         }
                 break;
             case 7:
-                cout << "You selected Q2 - Greedy Problem 2" << endl;
+               {
+                TaskScheduler scheduler;
+                vector<char> tasks = {'A', 'A', 'A', 'B', 'B', 'B'};
+                int n = 2;
+                cout << scheduler.leastInterval(tasks, n) << endl; // Output: 8
+                return 0;
+            }
                 break;
             case 8:
                 cout << "You selected Q3 - Greedy Problem 3" << endl;
