@@ -147,7 +147,40 @@ int main() {
                 cout << "You selected Q4 - Greedy Problem 4" << endl;
                 break;
             case 10:
-                cout << "You selected Q5 - Greedy Problem 5" << endl;
+                {
+                ios_base::sync_with_stdio(false);
+                cin.tie(0);
+                cin >> num_nodes >> num_edges;
+
+                KruskalAlgorithm kruskal(num_nodes);
+                for (int i = 1; i <= num_edges; ++i) {
+                    int u, v, weight;
+                    cin >> u >> v >> weight;
+                    kruskal.add_edge(u, v, weight);
+                }
+
+                kruskal.MST();
+                dfs(1, 0);
+
+                for (int i = 0; i < max_nodes * 2; ++i) {
+                    ll adjustment = weight_count[i] / 2;
+                    weight_count[i] -= (adjustment * 2);
+                    result[i] = weight_count[i];
+                    weight_count[i + 1] += adjustment;
+                }
+
+                bool non_zero_found = false;
+                for (int i = 2 * max_nodes - 1; i >= 0; --i) {
+                    if (!result[i]) {
+                        if (non_zero_found) cout << result[i];
+                    } else {
+                        non_zero_found = true;
+                        cout << result[i];
+                    }
+                }
+
+                cout << '\n';
+            }
                 break;
             case 11:
                 cout << "Exiting the program. Goodbye!" << endl;
