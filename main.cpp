@@ -142,6 +142,7 @@ int main() {
                 break;
             case 8:
                 cout << "You selected Q3 - Greedy Problem 3" << endl;
+                solveGraphProblem();
                 break;
             case 9:
                 cout << "You selected Q4 - Greedy Problem 4" << endl;
