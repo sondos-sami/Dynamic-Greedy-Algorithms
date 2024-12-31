@@ -4,11 +4,11 @@ typedef long long ll;
 const int max_nodes = 200000;
 
 vector<pair<int, int>> graph[max_nodes];
-int parent[max_nodes], size[max_nodes];
+int parent[max_nodes], node_size[max_nodes];
 
 void initialize_set(int node) {
     parent[node] = node;
-    size[node] = 1;
+    node_size[node] = 1;
 }
 
 int find_parent(int node) {
@@ -20,9 +20,9 @@ void merge_sets(int a, int b) {
     a = find_parent(a);
     b = find_parent(b);
     if (a != b) {
-        if (size[a] < size[b]) swap(a, b);
+        if (node_size[a] < node_size[b]) swap(a, b);
         parent[b] = a;
-        size[a] += size[b];
+        node_size[a] += node_size[b];
     }
 }
 
@@ -75,5 +75,3 @@ void dfs(int node, int parent_node) {
         weight_count[weight] += (subtree_size[neighbor] * 1LL * (num_nodes - subtree_size[neighbor]));
     }
 }
-
-
