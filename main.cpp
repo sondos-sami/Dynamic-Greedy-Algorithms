@@ -179,7 +179,27 @@ int main() {
                 solveGraphProblem();
                 break;
             case 9:
-                cout << "You selected Q4 - Greedy Problem 4" << endl;
+                cout << "You selected Q4 - Greedy Problem 4" << endl;{
+                 cout<<"enter nodes and edgesCount\n";
+                    cin >> nodes >> edgesCount;
+                    cout<<"enter goldMultiplier and silverMultiplier\n";
+
+                    cin >> goldMultiplier >> silverMultiplier;
+
+                    connections.resize(edgesCount);
+                    disjointSetParent.resize(nodes + 1);
+
+                    for (int i = 0; i < edgesCount; ++i) {
+                        cin >> connections[i].start >> connections[i].end >> connections[i].weightGold >> connections[i].weightSilver;
+                    }
+
+                    sort(connections.begin(), connections.end(), compareConnections);
+                    performKruskal();
+
+                    if (minimumCost == INFINITY_VALUE)
+                        cout << "-1\n";
+                    else
+                        cout << minimumCost << "\n";}
                 break;
             case 10:
                 {
