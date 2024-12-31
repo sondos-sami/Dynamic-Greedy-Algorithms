@@ -35,7 +35,24 @@ int main() {
 
         switch (choice) {
             case 1:
-                cout << "You selected Q1 - Dynamic Programming Problem 1" << endl;
+                {
+                    int t;
+                    cin >> t; // Number of test cases
+
+                    while (t--) {
+                        int n;
+                        cin >> n; // Number of coins
+                        vector<int> coins(n);
+
+                        for (int i = 0; i < n; i++) {
+                            cin >> coins[i]; // Values of the coins
+                        }
+
+                        cout << minDifference(coins) << endl; // Output the minimum difference
+                    }
+
+                    return 0;
+                }
                 break;
             case 2:
                 cout << "You selected Q2 - Dynamic Programming Problem 2" << endl;
